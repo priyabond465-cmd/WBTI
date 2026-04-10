@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-zcool: "ZCOOL KuaiLe", cursive;
+
+  --color-cyber-green: #00FF00;
+  --color-cyber-red: #FF003C;
+  --color-cyber-black: #0A0A0A;
+  --color-cyber-blue: #00FFFF;
+}
+
+@layer utilities {
+  .glitch-text {
+    position: relative;
+    color: white;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-cyber-black);
+  }
+  
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--color-cyber-red);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+  }
+  
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--color-cyber-blue);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+  }
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(11px, 9999px, 86px, 0); }
+  5% { clip: rect(65px, 9999px, 11px, 0); }
+  10% { clip: rect(140px, 9999px, 140px, 0); }
+  15% { clip: rect(100px, 9999px, 114px, 0); }
+  20% { clip: rect(14px, 9999px, 126px, 0); }
+  25% { clip: rect(14px, 9999px, 126px, 0); }
+  30% { clip: rect(14px, 9999px, 126px, 0); }
+  35% { clip: rect(14px, 9999px, 126px, 0); }
+  40% { clip: rect(14px, 9999px, 126px, 0); }
+  45% { clip: rect(14px, 9999px, 126px, 0); }
+  50% { clip: rect(14px, 9999px, 126px, 0); }
+  55% { clip: rect(14px, 9999px, 126px, 0); }
+  60% { clip: rect(14px, 9999px, 126px, 0); }
+  65% { clip: rect(14px, 9999px, 126px, 0); }
+  70% { clip: rect(14px, 9999px, 126px, 0); }
+  75% { clip: rect(14px, 9999px, 126px, 0); }
+  80% { clip: rect(14px, 9999px, 126px, 0); }
+  85% { clip: rect(14px, 9999px, 126px, 0); }
+  90% { clip: rect(14px, 9999px, 126px, 0); }
+  95% { clip: rect(14px, 9999px, 126px, 0); }
+  100% { clip: rect(14px, 9999px, 126px, 0); }
+}
+
+.matrix-bg {
+  background: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(0,20,0,1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 0;
+  pointer-events: none;
+}
